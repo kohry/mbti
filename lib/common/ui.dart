@@ -8,18 +8,24 @@ class UI {
           callback();
         },
       child:  Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
           color: Color.fromRGBO(40, 82, 16, 1.0),
         ),
       padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
+      margin: EdgeInsets.fromLTRB(40, 10, 40, 10),
 
-      child: UI.textA(msg, color: Colors.white)
+      child: UI.textACenter(msg, color: Colors.white)
     ));
   }
 
   static Text textA(String str, {Color color = Colors.black87, double size = 25, }) {
     return Text(str, style: TextStyle(fontFamily: 'Mini', fontSize: size, color: color, decoration: TextDecoration.none));
+  }
+
+  static Text textACenter(String str, {Color color = Colors.black87, double size = 25, }) {
+    return Text(str,textAlign: TextAlign.center, style: TextStyle( fontFamily: 'Mini', fontSize: size, color: color, decoration: TextDecoration.none));
   }
 
   static Widget container(Widget widget, {Color color = Colors.white54}) {
