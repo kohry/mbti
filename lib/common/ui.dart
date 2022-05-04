@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UI {
 
-  static Widget button(String msg, Function callback) {
+  static Widget button(String msg, Function callback, {Color color = const Color.fromRGBO(40, 82, 16, 1.0)}) {
     return GestureDetector(
       onTap: (){
           callback();
@@ -11,7 +11,7 @@ class UI {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Color.fromRGBO(40, 82, 16, 1.0),
+          color: color,
         ),
       padding: EdgeInsets.fromLTRB(30, 15, 30, 15),
       margin: EdgeInsets.fromLTRB(40, 10, 40, 10),
@@ -40,23 +40,22 @@ class UI {
   }
 
   static Widget getPngFromPathNoAlign(String str, {double width = 250, double height = 250}) {
-    return ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: Container(
-          padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
-          // width: 1300,
-          // height: 1700,
-          width: width,
+    return Container(
+        alignment: Alignment.center,
+
+          // width: width,
           height: height,
           margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
               image: DecorationImage(
+                alignment: Alignment.center,
+
                 // fit: BoxFit.fitWidth,
-                  fit: BoxFit.fitWidth,
-                  image: AssetImage(str))
+                  fit: BoxFit.scaleDown,
+                  image: AssetImage(str,))
           ),
-        )) ;
+        ) ;
   }
 
 }
