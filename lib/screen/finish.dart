@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mbti/common/analytics.dart';
 import 'package:mbti/common/common.dart';
 import 'package:mbti/common/text.dart';
 import 'package:mbti/common/ui.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:store_redirect/store_redirect.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Finish extends StatelessWidget {
   const Finish({Key? key}) : super(key: key);
@@ -64,12 +65,21 @@ class Finish extends StatelessWidget {
               GestureDetector(
                   onTap: (){
                     ALog.log('click_download_finish');
-                    StoreRedirect.redirect(androidAppId: "com.music.couple.diary",
-                        iOSAppId: "1550789824");
+                    // StoreRedirect.redirect(androidAppId: "com.music.couple.diary",
+                    //     iOSAppId: "1550789824");
+
+                    try {
+                      launchUrlString("market://details?id=" + "1550789824");
+                    } on PlatformException catch(e) {
+                      launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                    } finally {
+                      launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                    }
+
                   },
                   child:
               Container(
-                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Colors.white12

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mbti/common/analytics.dart';
 import 'package:mbti/common/common.dart';
 import 'package:mbti/common/ui.dart';
@@ -6,7 +7,8 @@ import 'package:mbti/screen/finish.dart';
 import 'package:mbti/screen/questions.dart';
 import 'package:mbti/common/text.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:store_redirect/store_redirect.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
 
@@ -36,12 +38,21 @@ class FirstRoute extends StatelessWidget {
             GestureDetector(
                 onTap: (){
                   ALog.log('click_download_start');
-                  StoreRedirect.redirect(androidAppId: "com.music.couple.diary",
-                      iOSAppId: "1550789824");
+                  // StoreRedirect.redirect(androidAppId: "com.music.couple.diary",
+                  //     iOSAppId: "1550789824");
+
+                  try {
+                    launchUrlString("market://details?id=" + "1550789824");
+                  } on PlatformException catch(e) {
+                    launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                  } finally {
+                    launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                  }
+
                 },
                 child:
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                  padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       color: Colors.white12
@@ -55,26 +66,10 @@ class FirstRoute extends StatelessWidget {
       ),
       body: Center(child:
         Container(
-        // decoration: BoxDecoration(
-        //     gradient: LinearGradient(
-        //       begin: Alignment.topCenter,
-        //       end: Alignment.bottomCenter,
-        //       colors: [
-        //         Colors.blue,
-        //         Colors.red,
-        //       ],
-        //     )
-        // ),
 
-        child: Column(
+        child:Column(
           children: [
-            Container(height: 30,),
-            UI.textA('연애할때 나의 MBTI는?', size: 50),
-            UI.textA('나도 몰랐던 내 모습이 있다구!', size: 35),
-            Spacer(),
-            UI.getPngFromPathNoAlign("assets/images/icon.png", width: 300, height: 300),
-            Container(height: 50,),
-            Spacer(),
+            Container(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -84,19 +79,25 @@ class FirstRoute extends StatelessWidget {
                       Share.share('연애할때 나의 MBTI는?');
                     },
                     child:
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(35)),
-                    color: Colors.white
-                  ),
-                  child: Icon(Icons.share, size: 20,color: Colors.black87,),
-                )),
-                Container(width: 40,),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(35)),
+                          color: Colors.white
+                      ),
+                      child: Icon(Icons.share, size: 20,color: Colors.black87,),
+                    )),
+                Container(height:10,width: 10,),
               ],
             ),
 
-            Container(height: 20,),
+            UI.textA('연애할때 나의 MBTI는?', size: 40),
+            UI.textA('나도 몰랐던 내 모습이 있다구!', size: 25),
+            Spacer(),
+            UI.getPngFromPathNoAlign("assets/images/icon.png", width: 200, height: 200),
+            Spacer(),
+
+
             UI.button('나를 알아보러 가기 :)', (){
 
               ALog.log('click_start');
@@ -116,7 +117,9 @@ class FirstRoute extends StatelessWidget {
               );
 
             }),
-            Container(height: 50,)
+
+
+            Container(height: 20,)
 
           ],
         )
