@@ -12,12 +12,13 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
 
-  // Common.questionList = Iterable<int>.generate(QUESTION_COUNT).map((e) => e+1).toList()..shuffle();
-  // Common.answers = [1,1,1,1,1,1,1,1,1,1,1,1,1];
+  Common.questionList = Iterable<int>.generate(QUESTION_COUNT).map((e) => e+1).toList()..shuffle();
+  Common.answers = [1,1,1,1,1,1,1,1,1,1,1,1,1];
 
   runApp(const MaterialApp(
     title: 'Navigation Basics',
-    home: FirstRoute(),
+    // home: FirstRoute(),
+    home: Finish(),
   ));
 }
 
@@ -42,11 +43,9 @@ class FirstRoute extends StatelessWidget {
                   //     iOSAppId: "1550789824");
 
                   try {
-                    launchUrlString("market://details?id=" + "1550789824");
+                    launchUrlString("https://tree-memories.com/invite/mbti");
                   } on PlatformException catch(e) {
-                    launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
-                  } finally {
-                    launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                    launchUrlString("https://tree-memories.com/invite/mbti");
                   }
 
                 },

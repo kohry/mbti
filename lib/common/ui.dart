@@ -43,7 +43,7 @@ class UI {
     return Container(
         alignment: Alignment.center,
 
-          // width: width,
+          width: width,
           height: height,
           margin: EdgeInsets.fromLTRB(0, 30, 0, 30),
           decoration: BoxDecoration(

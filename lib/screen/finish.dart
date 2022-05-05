@@ -69,11 +69,9 @@ class Finish extends StatelessWidget {
                     //     iOSAppId: "1550789824");
 
                     try {
-                      launchUrlString("market://details?id=" + "1550789824");
+                      launchUrlString("https://tree-memories.com/invite/mbti");
                     } on PlatformException catch(e) {
-                      launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
-                    } finally {
-                      launchUrlString("https://play.google.com/store/apps/details?id=" + "com.music.couple.diary");
+                      launchUrlString("https://tree-memories.com/invite/mbti");
                     }
 
                   },
@@ -93,12 +91,12 @@ class Finish extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-        padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
-        margin: EdgeInsets.fromLTRB(10, 10, 10, 50),
+        padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
+        margin: EdgeInsets.fromLTRB(10, 0, 10, 50),
         child:
         Column(
           children: [
-            UI.getPngFromPathNoAlign("assets/images/mbti/$mbti.png", width: double.infinity, height: 300),
+            UI.getPngFromPathNoAlign("assets/images/mbti/$mbti.png", width: double.infinity, height: 200),
             // UI.textA('연애할 때 나의 모습은..', size: 30),
             UI.textA(MBTI_TITLE[mbti] ?? '', size: 40),
             Container(height: 20,),
@@ -128,10 +126,43 @@ class Finish extends StatelessWidget {
               ],
             ),
             Container(height: 50,),
+            Column(
+              children: [
+
+                Divider(),
+                Container(height: 20,),
+                UI.textA('최고의 궁합', size: 35),
+                UI.getPngFromPathNoAlign("assets/images/mbti/${MBTI_GOOD_COUPLE[mbti]}.png", width: double.infinity, height: 200),
+                UI.textA(MBTI_TITLE[MBTI_GOOD_COUPLE[mbti]] ?? '', size: 30),
+                Container(height: 10,),
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                      color: Colors.white54
+                  ),
+                  child: UI.textA('#' + MBTI_GOOD_COUPLE[mbti]!, size: 30),
+                ),
+              ],
+            ),
+
+            Container(height: 50,),
+            UI.button('서로에 대해 더 잘 알아보기', (){
+              ALog.log('click_download_last');
+
+              try {
+                launchUrlString("https://tree-memories.com/invite/mbti");
+              } on PlatformException catch(e) {
+                launchUrlString("https://tree-memories.com/invite/mbti");
+              }
+            }),
+            Container(height: 0,),
             UI.button('테스트 다시 하기', (){
               ALog.log('click_retest');
               Navigator.popUntil(context, (route) => route.isFirst);
             }, color: Colors.black26),
+            Container(height: 10,),
+
             Container(height: 80,),
 
           ],
