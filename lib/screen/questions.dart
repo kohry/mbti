@@ -44,6 +44,7 @@ class QuestionWidgetState extends State<Question> {
     if (_answer != null) {
 
       ALog.log('click_next_question_' + widget.level.toString());
+      ALog.log('choose_answer_' + _answer.toString());
 
       Common.answers[widget.level] = _answer!;
 

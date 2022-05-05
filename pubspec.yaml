@@ -37,7 +37,7 @@ dependencies:
   share_plus: ^4.0.4
   firebase_analytics: ^8.2.0
   store_redirect: ^2.0.1
-
+  firebase_core: ^1.13.1
 
 dev_dependencies:
   flutter_test:

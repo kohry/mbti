@@ -39,6 +39,8 @@ class Finish extends StatelessWidget {
     String mbti = calculate();
     print(mbti);
 
+    ALog.log('mbti_result_' + mbti);
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       bottomSheet:GestureDetector(
