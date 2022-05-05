@@ -12,13 +12,13 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
 
-  Common.questionList = Iterable<int>.generate(QUESTION_COUNT).map((e) => e+1).toList()..shuffle();
-  Common.answers = [1,1,1,1,1,1,1,1,1,1,1,1,1];
+  // Common.questionList = Iterable<int>.generate(QUESTION_COUNT).map((e) => e+1).toList()..shuffle();
+  // Common.answers = [1,1,1,1,1,1,1,1,1,1,1,1,1];
 
   runApp(const MaterialApp(
-    title: 'Navigation Basics',
+    title: '연애세포 MBTI',
     // home: FirstRoute(),
-    home: Finish(),
+    home: FirstRoute(),
   ));
 }
 
@@ -75,7 +75,8 @@ class FirstRoute extends StatelessWidget {
                 GestureDetector(
                     onTap: (){
                       ALog.log('click_share_first');
-                      Share.share('연애할때 나의 MBTI는?');
+                      Share.share('https://tree-memories.com/invite/mbtitest');
+
                     },
                     child:
                     Container(

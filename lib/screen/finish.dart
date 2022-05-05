@@ -47,7 +47,7 @@ class Finish extends StatelessWidget {
       bottomSheet:GestureDetector(
           onTap: (){
             ALog.log('click_share_last');
-            Share.share('결과공유');
+            Share.share('https://tree-memories.com/invite/${mbti.toLowerCase()}');
           },
           child: Container(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
