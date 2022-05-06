@@ -29,7 +29,7 @@ class QuestionWidgetState extends State<Question> {
 
   Route _createRoute() {
 
-    Widget nextWidget = widget.level == QUESTION_COUNT - 1 ? Finish() : Question(widget.level + 1);
+    Widget nextWidget = widget.level == QUESTION_COUNT - 1 ? Finish('') : Question(widget.level + 1);
 
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => nextWidget,

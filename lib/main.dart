@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:mbti/common/analytics.dart';
 import 'package:mbti/common/common.dart';
 import 'package:mbti/common/ui.dart';
+import 'package:mbti/router/FloroRouter.dart';
 import 'package:mbti/screen/finish.dart';
 import 'package:mbti/screen/questions.dart';
 import 'package:mbti/common/text.dart';
@@ -14,8 +15,9 @@ void main() {
 
   // Common.questionList = Iterable<int>.generate(QUESTION_COUNT).map((e) => e+1).toList()..shuffle();
   // Common.answers = [1,1,1,1,1,1,1,1,1,1,1,1,1];
-
-  runApp(const MaterialApp(
+  FRouter.setupRouter();
+  runApp(MaterialApp(
+    onGenerateRoute: FRouter.router.generator,
     title: '연애세포 MBTI',
     // home: FirstRoute(),
     home: FirstRoute(),
@@ -27,6 +29,7 @@ class FirstRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       appBar: AppBar(
@@ -98,7 +101,7 @@ class FirstRoute extends StatelessWidget {
             Spacer(),
 
 
-            UI.button('나를 알아보러 가기 :)', (){
+            UI.button('나를 연애세포 측정하기 🧬', (){
 
               ALog.log('click_start');
 

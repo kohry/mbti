@@ -8,9 +8,13 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Finish extends StatelessWidget {
-  const Finish({Key? key}) : super(key: key);
 
-  String calculate() {
+  //친구한테 공유된 링크로 들어왔을대
+  String sharedMBTI = '';
+
+  Finish(this.sharedMBTI);
+
+  String calculateFromStatic() {
 
     Map<String, int> result = {
       'I' : 0,
@@ -37,7 +41,10 @@ class Finish extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String mbti = calculate();
+    print(Common.answers);
+
+    //이상한 값은 default로 오고, mbti는 대소문자 가리지않고 판별가능하고, 시스템으로 했다면 static으로 처리
+    String mbti = sharedMBTI.isEmpty ? calculateFromStatic() : Common.convertMBTIString(sharedMBTI);
     print(mbti);
 
     ALog.log('mbti_result_' + mbti);
@@ -91,7 +98,7 @@ class Finish extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-        padding: EdgeInsets.fromLTRB(50, 0, 50, 0),
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
         margin: EdgeInsets.fromLTRB(10, 0, 10, 50),
         child:
         Column(
@@ -151,7 +158,21 @@ class Finish extends StatelessWidget {
             ),
 
             Container(height: 50,),
-            UI.button('서로에 대해 더 잘 알아보기', (){
+
+            sharedMBTI.isEmpty ?
+
+            UI.button('테스트 다시 하기', (){
+              ALog.log('click_retest');
+              Navigator.popUntil(context, (route) => route.isFirst);
+            }, color: Colors.black26)
+                :
+            UI.button('나도 테스트 해보기', (){
+              ALog.log('click_retest');
+              Navigator.popUntil(context, (route) => route.isFirst);
+            }, color: Color.fromRGBO(40, 82, 16, 1.0)),
+
+            Container(height: 0,),
+            UI.button('기억나무 앱에서 더 알아보기 😍', (){
               ALog.log('click_download_last');
 
               try {
@@ -159,12 +180,8 @@ class Finish extends StatelessWidget {
               } on PlatformException catch(e) {
                 launchUrlString("https://tree-memories.com/invite/mbti");
               }
-            }),
-            Container(height: 0,),
-            UI.button('테스트 다시 하기', (){
-              ALog.log('click_retest');
-              Navigator.popUntil(context, (route) => route.isFirst);
-            }, color: Colors.black26),
+            }, color: sharedMBTI.isEmpty ? Color.fromRGBO(40, 82, 16, 1.0) : Colors.black38),
+
             Container(height: 10,),
 
             Container(height: 80,),
