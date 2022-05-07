@@ -54,7 +54,7 @@ class Finish extends StatelessWidget {
       bottomSheet:GestureDetector(
           onTap: (){
             ALog.log('click_share_last');
-            Share.share('https://tree-memories.com/invite/${mbti.toLowerCase()}');
+            Share.share('https://tree-memories.com/invite/${mbti.toLowerCase()}', subject: '나의 연애세포 MBTI는 ${mbti.toUpperCase()}');
           },
           child: Container(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
