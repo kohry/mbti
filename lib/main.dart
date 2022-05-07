@@ -33,11 +33,11 @@ class FirstRoute extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(40, 82, 16, 1.0),
+        backgroundColor: Color.fromRGBO(24, 77, 71, 1.0),
         elevation: 0,
         title: Row(
           children: [
-            UI.textA(' 기억나무', size: 30, color: Colors.white),
+            UI.textA('기억나무', size: 30, color: Colors.white),
             Spacer(),
             GestureDetector(
                 onTap: (){
@@ -54,14 +54,14 @@ class FirstRoute extends StatelessWidget {
                 },
                 child:
                 Container(
-                  padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
+                  padding: EdgeInsets.fromLTRB(10, 5, 10,5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                       color: Colors.white12
                   ),
                   child: UI.textA('앱 다운로드', size: 20, color: Colors.white),
                 )),
-            Container(width: 10,)
+            Container(width: 0,)
           ],
         )
 
@@ -101,7 +101,7 @@ class FirstRoute extends StatelessWidget {
             Spacer(),
 
 
-            UI.button('나를 연애세포 측정하기 🧬', (){
+            UI.button('나의 연애세포 측정하기 🧬', (){
 
               ALog.log('click_start');
 

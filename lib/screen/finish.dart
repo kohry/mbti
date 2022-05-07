@@ -59,15 +59,15 @@ class Finish extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
             width: double.infinity,
-        color: Color.fromRGBO(40, 82, 16, 1.0),
+        color: Color.fromRGBO(24, 77, 71, 1.0),
         child: UI.textACenter('결과 공유하기', size: 30, color: Colors.white)
       )),
       appBar:  AppBar(
-          backgroundColor: Color.fromRGBO(40, 82, 16, 1.0),
+          backgroundColor: Color.fromRGBO(24, 77, 71, 1.0),
           elevation: 0,
           title: Row(
             children: [
-              UI.textA(' 기억나무', size: 30, color: Colors.white),
+              UI.textA('기억나무', size: 30, color: Colors.white),
               Spacer(),
               GestureDetector(
                   onTap: (){
@@ -84,14 +84,14 @@ class Finish extends StatelessWidget {
                   },
                   child:
               Container(
-                padding: EdgeInsets.fromLTRB(10, 5, 5, 5),
+                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Colors.white12
                 ),
                 child: UI.textA('앱 다운로드', size: 20, color: Colors.white),
               )),
-              Container(width: 10,)
+              Container(width: 0,)
             ],
           )
 
@@ -169,7 +169,7 @@ class Finish extends StatelessWidget {
             UI.button('나도 테스트 해보기', (){
               ALog.log('click_retest');
               Navigator.popUntil(context, (route) => route.isFirst);
-            }, color: Color.fromRGBO(40, 82, 16, 1.0)),
+            }, color: Color.fromRGBO(24, 77, 71, 1.0)),
 
             Container(height: 0,),
             UI.button('기억나무 앱에서 더 알아보기 😍', (){
@@ -180,7 +180,7 @@ class Finish extends StatelessWidget {
               } on PlatformException catch(e) {
                 launchUrlString("https://tree-memories.com/invite/mbti");
               }
-            }, color: sharedMBTI.isEmpty ? Color.fromRGBO(40, 82, 16, 1.0) : Colors.black38),
+            }, color: sharedMBTI.isEmpty ? Color.fromRGBO(24, 77, 71, 1.0) : Colors.black38),
 
             Container(height: 10,),
 
