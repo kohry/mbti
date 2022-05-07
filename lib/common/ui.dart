@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UI {
 
-  static Widget button(String msg, Function callback, {Color color = const Color.fromRGBO(24, 77, 71, 1.0)}) {
+  static Widget button(String msg, Function callback, {Color color = const Color.fromRGBO(40, 82, 16, 1.0)}) {
     return GestureDetector(
       onTap: (){
           callback();

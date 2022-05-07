@@ -64,7 +64,7 @@ class QuestionWidgetState extends State<Question> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(24, 77, 71, 1.0),
+        backgroundColor: Color.fromRGBO(40, 82, 16, 1.0),
         elevation: 0,
         title: UI.textA('${widget.level+1} / 12', color: Colors.white, size: 35),
       ),
@@ -93,7 +93,7 @@ class QuestionWidgetState extends State<Question> {
               },
                 title: UI.textA(CustomTextSet.getAnswer1Text(index), color: _selected_1 ? Colors.white : Colors.black87),
               ),
-               color: _selected_1 ? Color.fromRGBO(24, 77, 71, 1.0) : Colors.white54
+               color: _selected_1 ? Color.fromRGBO(40, 82, 16, 1.0) : Colors.white54
             ),
           UI.container(
               ListTile(
@@ -112,7 +112,7 @@ class QuestionWidgetState extends State<Question> {
                 },
                 title: UI.textA(CustomTextSet.getAnswer2Text(index), color: _selected_2 ? Colors.white : Colors.black87),
               ),
-              color: _selected_2 ? Color.fromRGBO(24, 77, 71, 1.0) : Colors.white54
+              color: _selected_2 ? Color.fromRGBO(40, 82, 16, 1.0) : Colors.white54
           ),
         ],)
         ),

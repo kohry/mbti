@@ -33,7 +33,7 @@ class FirstRoute extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(24, 77, 71, 1.0),
+        backgroundColor: Color.fromRGBO(40, 82, 16, 1.0),
         elevation: 0,
         title: Row(
           children: [
