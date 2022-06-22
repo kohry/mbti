@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbti/common/text.dart';
 
 class UI {
 
@@ -21,11 +22,11 @@ class UI {
   }
 
   static Text textA(String str, {Color color = Colors.black87, double size = 25, }) {
-    return Text(str, style: TextStyle(fontFamily: 'Mini', fontSize: size, color: color, decoration: TextDecoration.none));
+    return Text(str, style: TextStyle(fontFamily: LANG == 'ja' ? 'Maru' : 'Mini', fontSize: size * LANG_SIZE_MAPPING![LANG]!, color: color, decoration: TextDecoration.none));
   }
 
   static Text textACenter(String str, {Color color = Colors.black87, double size = 25, }) {
-    return Text(str,textAlign: TextAlign.center, style: TextStyle( fontFamily: 'Mini', fontSize: size, color: color, decoration: TextDecoration.none));
+    return Text(str,textAlign: TextAlign.center, style: TextStyle( fontFamily: LANG == 'ja' ? 'Maru' : 'Mini', fontSize: size * LANG_SIZE_MAPPING![LANG]!, color: color, decoration: TextDecoration.none));
   }
 
   static Widget container(Widget widget, {Color color = Colors.white54}) {

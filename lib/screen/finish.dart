@@ -41,6 +41,21 @@ class Finish extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    try {
+      if (LANG == 'default') {
+        final Locale appLocale = Localizations.localeOf(context);
+        String langString = appLocale.toString().substring(0,2);
+        if (LANGUAGE_MAPPING.keys.contains(langString)) {
+          LANG = langString;
+        } else {
+          LANG = 'ko';
+        }
+
+      }
+    } catch (e,s) {
+      LANG = 'ko';
+    }
+
     print(Common.answers);
 
     //이상한 값은 default로 오고, mbti는 대소문자 가리지않고 판별가능하고, 시스템으로 했다면 static으로 처리
@@ -49,25 +64,31 @@ class Finish extends StatelessWidget {
 
     ALog.log('mbti_result_' + mbti);
 
+    String shareAddress = 'https://tree-memories.com/invite/${mbti.toLowerCase()}';
+
+    if (LANG == 'ja') {
+      shareAddress = 'https://tree-memories.com/invite/ja_${mbti.toLowerCase()}';
+    }
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 248, 217, 1.0),
       bottomSheet:GestureDetector(
           onTap: (){
             ALog.log('click_share_last');
-            Share.share('https://tree-memories.com/invite/${mbti.toLowerCase()}', subject: '나의 연애세포 MBTI는 ${mbti.toUpperCase()}');
+            Share.share(shareAddress, subject: '${CustomTextSet.getText('MY_MBTI')} ${mbti.toUpperCase()}');
           },
           child: Container(
             padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
             width: double.infinity,
         color: Color.fromRGBO(40, 82, 16, 1.0),
-        child: UI.textACenter('결과 공유하기', size: 30, color: Colors.white)
+        child: UI.textACenter(CustomTextSet.getText('SHARE'), size: 30, color: Colors.white)
       )),
       appBar:  AppBar(
           backgroundColor: Color.fromRGBO(40, 82, 16, 1.0),
           elevation: 0,
           title: Row(
             children: [
-              UI.textA('기억나무', size: 30, color: Colors.white),
+              UI.textA(CustomTextSet.getText('APP_TITLE'), size: 30, color: Colors.white),
               Spacer(),
               GestureDetector(
                   onTap: (){
@@ -89,7 +110,7 @@ class Finish extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Colors.white12
                 ),
-                child: UI.textA('앱 다운로드', size: 20, color: Colors.white),
+                child: UI.textA(CustomTextSet.getText('DOWNLOAD'), size: 20, color: Colors.white),
               )),
               Container(width: 0,)
             ],
@@ -105,7 +126,7 @@ class Finish extends StatelessWidget {
           children: [
             UI.getPngFromPathNoAlign("assets/images/mbti/$mbti.png", width: double.infinity, height: 200),
             // UI.textA('연애할 때 나의 모습은..', size: 30),
-            UI.textA(MBTI_TITLE[mbti] ?? '', size: 40),
+            UI.textA(CustomTextSet.getMBTITitle(mbti) ?? '', size: 40),
             Container(height: 20,),
 
             Container(
@@ -123,17 +144,17 @@ class Finish extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                UI.textA('• ' + (MBTI_DESC[mbti]?[0] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[0] ?? ''), size: 30),
                 Container(height: 10,),
-                UI.textA('• ' + (MBTI_DESC[mbti]?[1] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[1] ?? ''), size: 30),
                 Container(height: 10,),
-                UI.textA('• ' + (MBTI_DESC[mbti]?[2] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[2] ?? ''), size: 30),
                 Container(height: 10,),
-                UI.textA('• ' + (MBTI_DESC[mbti]?[3] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[3] ?? ''), size: 30),
                 Container(height: 10,),
-                UI.textA('• ' + (MBTI_DESC[mbti]?[4] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[4] ?? ''), size: 30),
                 Container(height: 10,),
-                UI.textA('• ' + (MBTI_DESC[mbti]?[5] ?? ''), size: 30),
+                UI.textA('• ' + (CustomTextSet.getMBTIDesc(mbti) ?[5] ?? ''), size: 30),
               ],
             ),
             Container(height: 50,),
@@ -142,9 +163,9 @@ class Finish extends StatelessWidget {
 
                 Divider(),
                 Container(height: 20,),
-                UI.textA('최고의 궁합', size: 35),
+                UI.textA(CustomTextSet.getText('GOOD'), size: 35),
                 UI.getPngFromPathNoAlign("assets/images/mbti/${MBTI_GOOD_COUPLE[mbti]}.png", width: double.infinity, height: 200),
-                UI.textA(MBTI_TITLE[MBTI_GOOD_COUPLE[mbti]] ?? '', size: 30),
+                UI.textA(CustomTextSet.getMBTITitle(MBTI_GOOD_COUPLE[mbti]!) ?? '', size: 30),
                 Container(height: 10,),
                 Container(
                   padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
@@ -161,18 +182,18 @@ class Finish extends StatelessWidget {
 
             sharedMBTI.isEmpty ?
 
-            UI.button('테스트 다시 하기', (){
+            UI.button(CustomTextSet.getText('RE_TEST'), (){
               ALog.log('click_retest');
               Navigator.popUntil(context, (route) => route.isFirst);
             }, color: Colors.black26)
                 :
-            UI.button('나도 테스트 해보기', (){
+            UI.button(CustomTextSet.getText('ME_TEST'), (){
               ALog.log('click_retest');
               Navigator.popUntil(context, (route) => route.isFirst);
             }, color: Color.fromRGBO(40, 82, 16, 1.0)),
 
             Container(height: 0,),
-            UI.button('기억나무 앱에서 더 알아보기 😍', (){
+            UI.button(CustomTextSet.getText('MORE'), (){
               ALog.log('click_download_last');
 
               try {
@@ -194,26 +215,3 @@ class Finish extends StatelessWidget {
     );
   }
 }
-
-//
-// Container(height: 20,),
-// Text(MBTI),
-// Container(height: 20,),
-// Row(
-// crossAxisAlignment: CrossAxisAlignment.center,
-// mainAxisAlignment: MainAxisAlignment.center,
-//
-// children: [
-//
-// UI.button('다시 해보기',(){
-// Navigator.popUntil(context, (route) => route.isFirst);
-// }),
-//
-// Container(width: 20,),
-//
-// UI.button('공유하기',(){
-// Share.share('나의 연애할때의 MBTI는? http://localhost:64540/#/');
-// })
-//
-// ],
-// )

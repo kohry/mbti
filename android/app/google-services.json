@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "224822581397",
+    "project_id": "diarymbti",
+    "storage_bucket": "diarymbti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224822581397:android:b41013a8f80842bda9e39c",
+        "android_client_info": {
+          "package_name": "com.music.mbti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224822581397-4jrv9j8ad6k8henc5i6fv6o149vfs82h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhmJcxeIJoVC-QfidUugOqcWAkkMwvWDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224822581397-4jrv9j8ad6k8henc5i6fv6o149vfs82h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -65,6 +65,9 @@ flutter:
     - family: Mini
       fonts:
         - asset: assets/fonts/mini.ttf
+    - family: Maru
+      fonts:
+        - asset: assets/fonts/maru.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

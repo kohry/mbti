@@ -6,7 +6,7 @@ class Common {
   static List<int> questionList = [];
 
   static String convertMBTIString(String text) {
-    if (MBTI_TITLE.keys.contains(text.toUpperCase())) {
+    if (MBTI_TITLE_KO.keys.contains(text.toUpperCase())) {
       return text.toUpperCase();
     } else {
       return 'default';
