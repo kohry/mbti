@@ -120,7 +120,7 @@ class FirstRouteState extends State<FirstRoute> {
 
                       });
                     },
-                    items: <String>['ko','ja']
+                    items: <String>['ko','ja','en']
                         .map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
