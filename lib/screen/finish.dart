@@ -68,6 +68,8 @@ class Finish extends StatelessWidget {
 
     if (LANG == 'ja') {
       shareAddress = 'https://tree-memories.com/invite/ja_${mbti.toLowerCase()}';
+    } else if (LANG == 'en') {
+      shareAddress = 'https://tree-memories.com/invite/en_${mbti.toLowerCase()}';
     }
 
     return Scaffold(
