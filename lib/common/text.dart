@@ -703,7 +703,7 @@ const Map<String, String> MBTI_BAD_COUPLE = {
 };
 
 const Map<String, String> TEXT_KO = {
-  'TITLE' : 'MBTI',
+  'TITLE' : 'Couple Analysis (16 personality, MBTI) : Tree of memories',
   'APP_TITLE' : '기억나무',
   'DOWNLOAD' : '앱 다운로드',
   'Q1' : '연애할때 나의 MBTI는?',
@@ -733,7 +733,7 @@ const Map<String, String> TEXT_EN = {
 };
 
 const Map<String, String> TEXT_JA = {
-  'TITLE' : 'MBTI',
+  'TITLE' : 'Couple Analysis (16 personality, MBTI) : Tree of memories',
   'APP_TITLE' : '記憶の木',
   'DOWNLOAD' : 'アプリダウンロード',
   'Q1' : '恋愛する時の私の本当の性格は？',

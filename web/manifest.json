@@ -1,11 +1,11 @@
 {
-    "name": "mbti",
-    "short_name": "mbti",
+    "name": "Couple Analysis (16 personality, MBTI) : Tree of memories",
+    "short_name": "16 personality types in romance",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Find out your Personality (MBTI) types when you are in love relationship! Which personality type is your ideal partner?",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
